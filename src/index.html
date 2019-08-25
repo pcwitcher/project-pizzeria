@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pizzeria</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
+    rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <header class="header">
@@ -55,10 +58,10 @@
     </div>
   </header>
 
-    <div id="product-list" class="product-list container"></div>
+  <div id="product-list" class="product-list container"></div>
 
-    <script id="template-menu-product" type="text/x-handlebars-template">
-      <article class="product active"> <!-- product -->
+  <script id="template-menu-product" type="text/x-handlebars-template">
+    <article class="products"> <!-- product -->
 
           <header class="product__header">
             <h3 class="product__name no-spacing">{{ name }} <i class="fas fa-chevron-down product__icon"></i></h3>
@@ -141,4 +144,5 @@
   <script src="js/data.js"></script>
   <script src="js/script.js"></script>
 </body>
+
 </html>
