@@ -356,6 +356,11 @@
         thisCart.totalNumber += product.amount;
       }
       thisCart.totalPrice = thisCart.subtotalPrice + thisCart.deliveryFee;
+
+      if (thisCart.totalNumber == 0) {
+        thisCart.totalPrice = 0;
+      }
+
       console.log('thisCart.totalPrice', thisCart.totalPrice);
       console.log('thisCart.totalNumber', thisCart.totalNumber);
       console.log('thisCart.subtotalPrice', thisCart.subtotalPrice);
@@ -383,7 +388,7 @@
     initActions() {
       const thisCart = this;
 
-      thisCart.dom.wrapper.addEventListener('click', function () {
+      thisCart.dom.toggleTrigger.addEventListener('click', function (event) {
         event.preventDefault();
         thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
       });
@@ -392,9 +397,14 @@
         thisCart.update();
       });
 
-      thisCart.dom.productList.addEventListener('updated', function () {
+      /*thisCart.dom.productList.addEventListener('updated', function () {
         thisCart.remove(event.detail.cartProduct);
+      });*/
+      thisCart.dom.productList.addEventListener('remove', function () {
+        thisCart.remove(event.detail);
+        //console.log('remove');
       });
+
     }
 
     add(menuProduct) {
@@ -406,9 +416,9 @@
       const generatedDOM = utils.createDOMFromHTML(generatedHTML);
       //console.log('generatedDom:', generatedDOM);
 
-      const cartContainer = document.querySelector(select.containerOf.cart);
+      //const cartContainer = document.querySelector(select.containerOf.cart);
 
-      cartContainer.appendChild(generatedDOM);
+      thisCart.dom.productList.appendChild(generatedDOM);
       //console.log('adding product', menuProduct);
 
       thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
@@ -421,10 +431,17 @@
 
       const index = thisCart.products.indexOf(cartProduct);
       thisCart.products.splice(index, 1);
-      cartProduct.dom.wrapper.remove();
+      //cartProduct.dom.wrapper.remove();
+      event.detail.cartProduct.dom.wrapper.remove();
       thisCart.update();
-
     }
+
+    /*remove(index) {
+      const thisCart = this;
+
+      thisCart.products = thisCart.products.splice(index, 1);
+      thisCart.update();
+    }*/
 
   }
 
