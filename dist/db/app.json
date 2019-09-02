@@ -1,6 +1,5 @@
 {
-  "product": [
-    {
+  "product": [{
       "id": "cake",
       "class": "small",
       "name": "Zio Stefano's Doughnut",
@@ -202,11 +201,5 @@
       }
     }
   ],
-  "order": [
-    {
-      "address": "test",
-      "totalPrice": 29,
-      "id": 1
-    }
-  ]
+  "order": []
 }

@@ -388,6 +388,8 @@
       thisCart.dom.phone = thisCart.dom.wrapper.querySelector(select.cart.phone);
       thisCart.dom.address = thisCart.dom.wrapper.querySelector(select.cart.address);
 
+      console.log('select.cart.phone:', thisCart.dom.phone.value, select.cart.phone);
+
 
       for (let key of thisCart.renderTotalsKeys) {
         thisCart.dom[key] = thisCart.dom.wrapper.querySelectorAll(select.cart[key]);
@@ -490,6 +492,7 @@
       thisCartProduct.getElements(element);
       thisCartProduct.initAmountWidget();
       thisCartProduct.initActions();
+      thisCartProduct.getData();
 
       console.log('new CartProduct', thisCartProduct);
       console.log('productData', menuProduct);
@@ -542,8 +545,20 @@
       thisCartProduct.dom.wrapper.dispatchEvent(event);
     }
 
-    getData() {
+    /*****************************/
+    /********IN PROGRESS *********/
+    /*****************************/
+
+    getData(product) {
       const thisCartProduct = this;
+
+      thisCartProduct.dom = {};
+
+      thisCartProduct.dom.id = product.id;
+      thisCartProduct.dom.name = product.name;
+      thisCartProduct.dom.price = product.price;
+      thisCartProduct.dom.priceSingle = product.priceSingle;
+      thisCartProduct.dom.params = JSON.parse(JSON.stringify(product.params));
     }
   }
 
