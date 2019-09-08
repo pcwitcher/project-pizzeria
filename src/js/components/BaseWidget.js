@@ -5,7 +5,7 @@ class BaseWidget {
     thisWidget.dom = {};
     thisWidget.dom.wrapper = wrapperElement;
 
-    thisWidget.CorrectValue = initValue;
+    thisWidget.correctValue = initValue;
   }
 
   get value() {
