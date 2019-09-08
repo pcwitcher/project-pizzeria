@@ -30,9 +30,6 @@ class Cart {
       thisCart.totalPrice = 0;
     }
 
-    //console.log('thisCart.totalPrice', thisCart.totalPrice);
-    //console.log('thisCart.totalNumber', thisCart.totalNumber);
-    //console.log('thisCart.subtotalPrice', thisCart.subtotalPrice);
     for (let key of thisCart.renderTotalsKeys) {
       for (let elem of thisCart.dom[key]) {
         elem.innerHTML = thisCart[key];
