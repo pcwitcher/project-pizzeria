@@ -157,6 +157,12 @@ class Booking {
       }
     });
 
+    thisBooking.hourPicker.dom.input.addEventListener('input', function() {
+      if (bookedTable.length > 0) {
+        tables[bookedTable - 1].classList.remove('booked');
+      }
+    });
+
     thisBooking.dom.bookButton.addEventListener('submit', function() {
       event.preventDefault();
       thisBooking.sendBooking();
