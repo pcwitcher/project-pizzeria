@@ -7,10 +7,12 @@ import HourPicker from './HourPicker.js';
 class Booking {
   constructor(bookingElem) {
     const thisBooking = this;
+    thisBooking.starters = [];
 
     thisBooking.render(bookingElem);
     thisBooking.initWidgets();
     thisBooking.getData();
+    thisBooking.initBooking();
   }
 
   getData() {
@@ -137,6 +139,64 @@ class Booking {
     }
   }
 
+  initBooking() {
+    const thisBooking = this;
+    const tables = thisBooking.dom.tables;
+    let bookedTable = '';
+
+    for (let table of tables) {
+      table.addEventListener('click', function() {
+        table.classList.add('booked');
+        bookedTable = table.getAttribute('data-table');
+        thisBooking.table = bookedTable;
+      });
+    }
+    thisBooking.hourPicker.dom.input.addEventListener('input', function() {
+      if (bookedTable.length > 0) {
+        tables[bookedTable - 1].classList.remove('booked');
+      }
+    });
+
+    thisBooking.dom.bookButton.addEventListener('submit', function() {
+      event.preventDefault();
+      thisBooking.sendBooking();
+    });
+
+    thisBooking.dom.bookButton.addEventListener('change', function(event) {
+      if (event.target.value == 'water' || event.target.value == 'bread') {
+        thisBooking.starters.push(event.target.value);
+      }
+    });
+  }
+
+  sendBooking() {
+    const thisBooking = this;
+    const url = settings.db.url + '/' + settings.db.booking;
+
+    const payload = {
+      id: '',
+      date: thisBooking.datePicker.correctValue,
+      hour: thisBooking.hourPicker.correctValue,
+      table: parseInt(thisBooking.table),
+      repeat: false,
+      duration: thisBooking.hoursAmount.correctValue,
+      ppl: thisBooking.peopleAmount.correctValue,
+      starters: thisBooking.starters
+    };
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    };
+
+    fetch(url, options).then(function(response) {
+      return response.json();
+    });
+  }
+
   updateDOM() {
     const thisBooking = this;
 
@@ -198,6 +258,10 @@ class Booking {
 
     thisBooking.dom.tables = thisBooking.dom.wrapper.querySelectorAll(
       select.booking.tables
+    );
+
+    thisBooking.dom.bookButton = thisBooking.dom.wrapper.querySelector(
+      select.booking.form
     );
   }
 

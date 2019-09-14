@@ -10,7 +10,6 @@ class Cart {
     thisCart.deliveryFee = settings.cart.defaultDeliveryFee;
 
     thisCart.getElements(element);
-
     thisCart.initActions();
   }
 
