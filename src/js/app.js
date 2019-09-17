@@ -106,14 +106,42 @@ const app = {
     thisApp.booking = new Booking(bookingElem);
   },
 
+  /*initCarousel() {
+    let slideIndex = 0;
+
+    showSlides();
+
+    function showSlides() {
+      let i;
+      const slides = document.getElementsByClassName(classNames.carousel.card);
+      const dots = document.getElementsByClassName(classNames.carousel.dot);
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+        slideIndex = 1;
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(
+          classNames.carousel.activeDot,
+          ''
+        );
+      }
+      slides[slideIndex - 1].style.display = 'inherit';
+      dots[slideIndex - 1].className += classNames.carousel.activeDot;
+      setTimeout(showSlides, 3000);
+    }
+  },*/
+
   init: function() {
     const thisApp = this;
 
     thisApp.initPages();
-
     thisApp.initData();
     thisApp.initCart();
     thisApp.initBooking();
+    //thisApp.initCarousel();
   }
 };
 

@@ -181,12 +181,14 @@ class Booking {
 
     const payload = {
       id: '',
-      date: thisBooking.datePicker.correctValue,
+      date: thisBooking.datePicker.dom.input.value,
       hour: thisBooking.hourPicker.correctValue,
       table: parseInt(thisBooking.table),
       repeat: false,
       duration: thisBooking.hoursAmount.correctValue,
       ppl: thisBooking.peopleAmount.correctValue,
+      phone: thisBooking.dom.phone.value,
+      address: thisBooking.dom.address.value,
       starters: thisBooking.starters
     };
 
@@ -226,9 +228,7 @@ class Booking {
       }
       if (
         !allAvailable &&
-        thisBooking.booked[thisBooking.date][thisBooking.hour].includes(
-          tableId
-        ) > -1
+        thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
       ) {
         table.classList.add(classNames.booking.tableBooked);
       } else {
@@ -268,6 +268,18 @@ class Booking {
 
     thisBooking.dom.bookButton = thisBooking.dom.wrapper.querySelector(
       select.booking.form
+    );
+
+    thisBooking.dom.phone = thisBooking.dom.wrapper.querySelector(
+      select.booking.phone
+    );
+
+    thisBooking.dom.address = thisBooking.dom.wrapper.querySelector(
+      select.booking.address
+    );
+
+    thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(
+      select.booking.starters
     );
   }
 
