@@ -157,7 +157,7 @@ class Booking {
       }
     });
 
-    thisBooking.hourPicker.dom.input.addEventListener('input', function() {
+    thisBooking.datePicker.dom.input.addEventListener('input', function() {
       if (bookedTable.length > 0) {
         tables[bookedTable - 1].classList.remove('booked');
       }
@@ -166,6 +166,7 @@ class Booking {
     thisBooking.dom.bookButton.addEventListener('submit', function() {
       event.preventDefault();
       thisBooking.sendBooking();
+      thisBooking.getData();
     });
 
     thisBooking.dom.bookButton.addEventListener('change', function(event) {
@@ -200,9 +201,19 @@ class Booking {
       body: JSON.stringify(payload)
     };
 
-    fetch(url, options).then(function(response) {
-      return response.json();
-    });
+    fetch(url, options)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(parsedResponse) {
+        console.log('parsedResponse', parsedResponse);
+      });
+    thisBooking.makeBooked(
+      payload.date,
+      payload.hour,
+      payload.duration,
+      payload.table
+    );
   }
 
   updateDOM() {

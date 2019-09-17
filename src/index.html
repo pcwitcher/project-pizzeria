@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Pizzeria</title>
-  <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet"/>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="css/style.css"/>
-</head>
-<body>
-      <header class="header">
-        <div class="container">
-          <div class="header__wrapper">
-            <div class="logo">
-              <h1 class="logo__title"><span>Mamma</span>Mia!</h1>
-              <h2 class="logo__subtitle">the best homemade Italian food</h2>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pizzeria</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      rel="stylesheet"
+    />
+    <link
+      href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link
+      rel="stylesheet"
+      href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
+    />
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header__wrapper">
+          <div class="logo">
+            <h1 class="logo__title"><span>Mamma</span>Mia!</h1>
+            <h2 class="logo__subtitle">the best homemade Italian food</h2>
           </div>
         </div>
-      </header>
-      <div class="container main-container home-wrapper">
+      </div>
+    </header>
+    <div class="container main-container home-wrapper">
       <!-- LINKS -->
       <div class="main__info">
         <div class="first-row">
@@ -52,102 +65,133 @@
         </div>
       </div>
 
-        <!-- CAROUSEL -->
-        <section id="carousel" class="carousel">
-          <div class="carousel-container">
-            <div class="quotes-row">
-              <div class="col-md-8 col-md-offset-0">
-                <div class="carousel slide" id="fade-quote-carousel" data-ride="carousel" data-interval="3000">
-                  <!-- Carousel indicators -->
-                          <ol class="carousel-indicators">
-                    <li data-target="#fade-quote-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
-                    <li data-target="#fade-quote-carousel" data-slide-to="2"></li>
-                  </ol>
-                  <!-- Carousel items -->
-                  <div class="carousel-inner">
-
-                    <div class="active item quotes">
-                      <blockquote>
-                        <div class="quotes-image"></div>
-                        <h2 class="quotes-title">Great Food!</h2>
-                        <p class="quotes-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                        <p class="quotes-author">-Margaret Osborne</p>
-                      </blockquote>
-                    </div>
-                    <div class="item">
-                      <blockquote>
-                        <div class="quotes-image"></div>
-                        <h2 class="quotes-title">Awesome Food!</h2>
-                        <p class="quotes-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                        <p class="quotes-author">-Kind Diamond</p>
-                      </blockquote>
-                    </div>
-                    <div class="item">
-                      <blockquote>
-                        <div class="quotes-image"></div>
-                        <h2 class="quotes-title">Amazing Service!</h2>
-                        <p class="quotes-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem, veritatis nulla eum laudantium totam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi. Impedit temporibus nisi accusamus.</p>
-                        <p class="quotes-author">-Queen Elizabeth</p>
-                      </blockquote>
-                    </div>
+      <!-- CAROUSEL -->
+      <section id="carousel" class="carousel">
+        <div class="carousel-container">
+          <div class="quotes-row">
+            <div class="carousel-slider col-md-offset-0">
+              <div
+                class="carousel slide"
+                id="fade-quote-carousel"
+                data-ride="carousel"
+                data-interval="3000"
+              >
+                <!-- Carousel indicators -->
+                <ol class="carousel-indicators">
+                  <li
+                    data-target="#fade-quote-carousel"
+                    data-slide-to="0"
+                    class="active"
+                  ></li>
+                  <li data-target="#fade-quote-carousel" data-slide-to="1"></li>
+                  <li data-target="#fade-quote-carousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                  <div class="active item quotes">
+                    <blockquote>
+                      <div class="quotes-image"></div>
+                      <h2 class="quotes-title">Great Food!</h2>
+                      <p class="quotes-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Quidem, veritatis nulla eum laudantium totam
+                        tempore optio doloremque laboriosam quas, quos eaque
+                        molestias odio aut eius animi. Impedit temporibus nisi
+                        accusamus.
+                      </p>
+                      <p class="quotes-author">-Margaret Osborne</p>
+                    </blockquote>
+                  </div>
+                  <div class="item">
+                    <blockquote>
+                      <div class="quotes-image"></div>
+                      <h2 class="quotes-title">Awesome Food!</h2>
+                      <p class="quotes-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Quidem, veritatis nulla eum laudantium totam
+                        tempore optio doloremque laboriosam quas, quos eaque
+                        molestias odio aut eius animi. Impedit temporibus nisi
+                        accusamus.
+                      </p>
+                      <p class="quotes-author">-Kind Diamond</p>
+                    </blockquote>
+                  </div>
+                  <div class="item">
+                    <blockquote>
+                      <div class="quotes-image"></div>
+                      <h2 class="quotes-title">Amazing Service!</h2>
+                      <p class="quotes-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Quidem, veritatis nulla eum laudantium totam
+                        tempore optio doloremque laboriosam quas, quos eaque
+                        molestias odio aut eius animi. Impedit temporibus nisi
+                        accusamus.
+                      </p>
+                      <p class="quotes-author">-Queen Elizabeth</p>
+                    </blockquote>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- GALLERY -->
-        <div class="main__gallery">
-          <div class="main__gallery-wrapper">
-            <div class="row">
-              <div class="gallery-img">
-                <img src="images/assets/pizza-4.jpg" alt="foods on the plates" />
-                <span class="gallery-icon">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </span>
-              </div>
-              <div class="gallery-img">
-                <img src="images/assets/pizza-5.jpg" alt="plate with food on the table" />
-                <span class="gallery-icon">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </span>
-              </div>
-              <div class="gallery-img">
-                <img src="images/assets/pizza-6.jpg" alt="sliced pizza" />
-                <span class="gallery-icon">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </span>
-              </div>
-              <div class="gallery-img">
-                <img src="images/assets/pizza-7.jpg" alt="sign open" />
-                <span class="gallery-icon">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </span>
-              </div>
-              <div class="gallery-img">
-                <img src="images/assets/pizza-8.jpg" alt="hands in flour" />
-                <span class="gallery-icon">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </span>
-              </div>
-              <div class="gallery-img">
-                <img src="images/assets/pizza-9.jpg" alt="opened door" />
-                <span class="gallery-icon">
-                  <i class="fas fa-heart"></i>
-                  <i class="fas fa-share-alt"></i>
-                </span>
-              </div>
+      <!-- GALLERY -->
+      <div class="main__gallery">
+        <div class="main__gallery-wrapper">
+          <div class="row">
+            <div class="gallery-img">
+              <img src="images/assets/pizza-4.jpg" alt="foods on the plates" />
+              <span class="gallery-icon">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </span>
             </div>
+            <div class="gallery-img">
+              <img
+                src="images/assets/pizza-5.jpg"
+                alt="plate with food on the table"
+              />
+              <span class="gallery-icon">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </span>
+            </div>
+            <div class="gallery-img">
+              <img src="images/assets/pizza-6.jpg" alt="sliced pizza" />
+              <span class="gallery-icon">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </span>
+            </div>
+            <div class="gallery-img">
+              <img src="images/assets/pizza-7.jpg" alt="sign open" />
+              <span class="gallery-icon">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </span>
+            </div>
+            <div class="gallery-img">
+              <img src="images/assets/pizza-8.jpg" alt="hands in flour" />
+              <span class="gallery-icon">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </span>
+            </div>
+            <div class="gallery-img">
+              <img src="images/assets/pizza-9.jpg" alt="opened door" />
+              <span class="gallery-icon">
+                <i class="fas fa-heart"></i>
+                <i class="fas fa-share-alt"></i>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
       <footer class="footer">
         <a href="pageone.html">View more on Instagram</a>
       </footer>
-</body>
+    </div>
+  </body>
 </html>
