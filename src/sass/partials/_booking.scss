@@ -1,9 +1,9 @@
 #pages {
-  >* {
+  > * {
     display: none;
   }
 
-  >.active {
+  > .active {
     display: block;
   }
 }
@@ -29,10 +29,9 @@
   display: block;
   margin: 0 0 ($base-size * 2) 0;
 
-  >.widget-amount {
+  > .widget-amount {
     margin: ($base-size * 2) 0 0 0;
   }
-
 }
 
 .page__title {
@@ -54,7 +53,6 @@
     position: absolute;
     right: 0;
   }
-
 }
 
 .rangeSlider {
@@ -79,7 +77,6 @@
       top: -6px;
       background: $color-dark;
     }
-
   }
 
   &__fill {
@@ -102,11 +99,31 @@
   height: 320px;
   border: 12px solid $color-dark;
   margin: ($base-size * 4) auto;
-  background: linear-gradient(to right, #e9dfc4 0%, #e9dfc4 1%, #ede3c8 2%, #ede3c8 24%, #ebddc3 25%, #e9dfc4 48%, #ebddc3 49%, #e6d8bd 52%, #e6d8bd 53%, #e9dbc0 54%, #e6d8bd 55%, #e6d8bd 56%, #e9dbc0 57%, #e6d8bd 58%, #e6d8bd 73%, #e9dbc0 74%, #e9dbc0 98%, #ebddc3 100%);
+  background: linear-gradient(
+    to right,
+    #e9dfc4 0%,
+    #e9dfc4 1%,
+    #ede3c8 2%,
+    #ede3c8 24%,
+    #ebddc3 25%,
+    #e9dfc4 48%,
+    #ebddc3 49%,
+    #e6d8bd 52%,
+    #e6d8bd 53%,
+    #e9dbc0 54%,
+    #e6d8bd 55%,
+    #e6d8bd 56%,
+    #e9dbc0 57%,
+    #e6d8bd 58%,
+    #e6d8bd 73%,
+    #e9dbc0 74%,
+    #e9dbc0 98%,
+    #ebddc3 100%
+  );
   background-size: ($base-size * 3);
   background-repeat: repeat;
 
-  >* {
+  > * {
     position: absolute;
     text-align: center;
     vertical-align: center;
@@ -148,13 +165,16 @@
     transform-origin: 50% 50%;
     cursor: pointer;
 
+    .reservation {
+      background: orange;
+    }
+
     &--round {
       border-radius: 50%;
 
       &::after {
         border-radius: 50%;
       }
-
     }
 
     &.booked {
@@ -171,16 +191,15 @@
         background: $color-dark;
         opacity: 0.4;
       }
-
     }
   }
 
-  [data-table="1"] {
+  [data-table='1'] {
     left: 40px;
     top: 40px;
   }
 
-  [data-table="2"] {
+  [data-table='2'] {
     right: 25px;
     top: 25px;
     width: 100px;
@@ -188,7 +207,7 @@
     line-height: 100px;
   }
 
-  [data-table="3"] {
+  [data-table='3'] {
     right: 40px;
     top: 180px;
   }
