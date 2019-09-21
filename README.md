@@ -1,2 +1,1 @@
-[Project pizzeria](https://git.heroku.com/pizzeria-pcwitchera.git)
-
+[Project pizzeria](https://pizzeria-pcwitchera.herokuapp.com)
