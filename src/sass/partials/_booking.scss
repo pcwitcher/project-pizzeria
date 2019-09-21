@@ -78,6 +78,33 @@
       background: $color-dark;
     }
   }
+  /* SLIDER COLORS*/
+  .main-range {
+    width: 302px;
+    height: 12px;
+    position: relative;
+    bottom: 5px;
+    z-index: 1;
+    border-radius: $radius;
+  }
+
+  .half {
+    height: 12px;
+    width: 12.58px;
+    display: inline-block;
+  }
+
+  .allOccupied {
+    background-color: #ff0000;
+  }
+
+  .allFree {
+    background-color: #82ff48;
+  }
+
+  .oneFree {
+    background-color: #ffef14;
+  }
 
   &__fill {
     background: $color-success;
@@ -165,7 +192,7 @@
     transform-origin: 50% 50%;
     cursor: pointer;
 
-    .reservation {
+    &.reservation {
       background: orange;
     }
 
