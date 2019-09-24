@@ -73,7 +73,8 @@ export const select = {
     formSubmit: '.booking-form [type="submit"]',
     phone: '[name="phone"]',
     address: '[name="address"]',
-    starters: '.checkbox [type="checkbox"]'
+    starters: '.checkbox [type="checkbox"]',
+    availabilityRangeSlider: '.availability-wrapper'
   },
   nav: {
     links: '.main-nav a'
@@ -100,10 +101,11 @@ export const classNames = {
     active: 'active'
   },
   rangeSlider: {
-    allOccupied: 'allOccupied',
-    oneFree: 'oneFree',
-    allFree: 'allFree',
-    half: 'half'
+    divWrapper: 'availability',
+    div: 'table-availability',
+    noTables: 'no-tables',
+    oneTable: 'one-table',
+    allTables: 'all-tables'
   }
 };
 

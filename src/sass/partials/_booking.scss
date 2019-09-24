@@ -76,34 +76,8 @@
       height: ($base-size * 2);
       top: -6px;
       background: $color-dark;
+      z-index: 1;
     }
-  }
-  /* SLIDER COLORS*/
-  .main-range {
-    width: 302px;
-    height: 12px;
-    position: relative;
-    bottom: 5px;
-    z-index: 1;
-    border-radius: $radius;
-  }
-
-  .half {
-    height: 12px;
-    width: 12.58px;
-    display: inline-block;
-  }
-
-  .allOccupied {
-    background-color: #ff0000;
-  }
-
-  .allFree {
-    background-color: #82ff48;
-  }
-
-  .oneFree {
-    background-color: #ffef14;
   }
 
   &__fill {
@@ -112,6 +86,33 @@
     transition: width 100ms;
     box-shadow: none;
   }
+}
+
+.table-availability {
+  height: 12px;
+  width: 4.16%;
+  margin: 0;
+  padding: 0;
+
+  &:first-child {
+    border-radius: 50% 0 0 50%;
+  }
+
+  &:last-child {
+    border-radius: 0 50% 50% 0;
+  }
+}
+
+.no-tables {
+  background: #ff0000;
+}
+
+.one-table {
+  background: #ffa600;
+}
+
+.all-tables {
+  background: #008d0f;
 }
 
 .flatpickr-day {
@@ -243,4 +244,9 @@
 .booking-options {
   @include flex(row, flex-start, space-between);
   margin: ($base-size * 4) auto;
+}
+
+.availability-wrapper {
+  position: relative;
+  display: flex;
 }

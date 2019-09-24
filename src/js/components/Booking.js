@@ -60,6 +60,9 @@ class Booking {
     thisBooking.dom.starters = thisBooking.dom.wrapper.querySelectorAll(
       select.booking.starters
     );
+    thisBooking.dom.availabilityRangeSlider = thisBooking.dom.wrapper.querySelector(
+      select.booking.availabilityRangeSlider
+    );
   }
 
   initWidgets() {
@@ -71,7 +74,13 @@ class Booking {
     thisBooking.datePicker = new DatePicker(thisBooking.dom.datePicker);
     thisBooking.hourPicker = new HourPicker(thisBooking.dom.hourPicker);
 
-    thisBooking.dom.wrapper.addEventListener('updated', function() {
+    thisBooking.dom.datePicker.addEventListener('updated', function() {
+      thisBooking.clearTableAvailability();
+      thisBooking.updateDOM();
+      thisBooking.initTableAvailability();
+    });
+
+    thisBooking.dom.hourPicker.addEventListener('updated', function() {
       thisBooking.updateDOM();
     });
   }
@@ -169,7 +178,7 @@ class Booking {
     }
 
     thisBooking.updateDOM();
-    thisBooking.colorSlider();
+    thisBooking.initTableAvailability();
   }
 
   makeBooked(date, hour, duration, table) {
@@ -226,64 +235,49 @@ class Booking {
     }
   }
 
-  colorSlider() {
+  initTableAvailability() {
     const thisBooking = this;
 
-    let rangeSliderWrapper = document.querySelector(
-      select.containerOf.rangeSlider
-    );
-    // console.log('RANGE SLIDER', rangeSliderWrapper);
+    const tableAvailability = [];
 
-    let rangeContainer = document.createElement('div');
-    rangeContainer.classList.add('main-range');
-    rangeSliderWrapper.appendChild(rangeContainer);
-    // console.log('r s', rangeSliderWrapper);
-
-    for (let i = 12; i < 24; i = i + 0.5) {
-      let colorLayer = document.createElement('div');
-      colorLayer.classList.add('half');
-      colorLayer.setAttribute('data-tag', i);
-      //console.log('cl', colorLayer);
-      rangeContainer.appendChild(colorLayer);
-    }
-
-    thisBooking.parts = Array.from(
-      document.querySelector(select.containerOf.rangeWrapper).children
-    );
-    //console.log('thisBooking.PARTS', thisBooking.parts);
-
-    thisBooking.date = thisBooking.datePicker.value;
-    //console.log('date', thisBooking.date);
-
-    for (let part of thisBooking.parts) {
-      part.classList.remove(
-        classNames.rangeSlider.allOccupied,
-        classNames.rangeSlider.oneFree,
-        classNames.rangeSlider.allFree
-      );
-      const partNumber = part.getAttribute('data-tag');
-      //console.log('part', partNumber);
-      for (let i = 12; i < 24; i = i + 0.5) {
-        if (
-          (partNumber === i &&
-            typeof thisBooking.booked[thisBooking.date][i] === 'undefined') ||
-          (partNumber === i &&
-            thisBooking.booked[thisBooking.date][i].length === 1)
-        ) {
-          part.classList.add(classNames.rangeSlider.allFree);
-        } else if (
-          partNumber === i &&
-          thisBooking.booked[thisBooking.date][i].length === 3
-        ) {
-          part.classList.add(classNames.rangeSlider.allOccupied);
-        } else if (
-          partNumber === i &&
-          thisBooking.booked[thisBooking.date][i].length === 2
-        ) {
-          part.classList.add(classNames.rangeSlider.oneFree);
-        }
+    for (let i = settings.hours.open; i < settings.hours.close; i += 0.5) {
+      if (thisBooking.booked[thisBooking.date][i]) {
+        thisBooking.booked[thisBooking.date][i].push[thisBooking.table];
+      } else {
+        thisBooking.booked[thisBooking.date][i] = [];
       }
+      //console.log(thisBooking.booked[thisBooking.date][i]);
+      tableAvailability.push(thisBooking.booked[thisBooking.date][i].length);
     }
+
+    //console.log('availability', tableAvailability);
+
+    for (let i = 0; i < tableAvailability.length; i++) {
+      const divRangeSlider = document.createElement('div');
+      divRangeSlider.classList.add(classNames.rangeSlider.div);
+
+      if (tableAvailability[i] === 2) {
+        divRangeSlider.classList.add(classNames.rangeSlider.oneTable);
+      } else if (tableAvailability[i] === 3) {
+        divRangeSlider.classList.add(classNames.rangeSlider.noTables);
+      } else {
+        divRangeSlider.classList.add(classNames.rangeSlider.allTables);
+      }
+      thisBooking.dom.availabilityRangeSlider.appendChild(divRangeSlider);
+    }
+  }
+
+  clearTableAvailability() {
+    document.getElementById(classNames.rangeSlider.divWrapper).innerHTML = '';
+  }
+
+  setDefaultValues() {
+    const thisBooking = this;
+
+    thisBooking.hour = thisBooking.defaultValues.hour;
+    thisBooking.date = thisBooking.defaultValues.date;
+    thisBooking.people = thisBooking.defaultValues.people;
+    thisBooking.duration = thisBooking.defaultValues.duration;
   }
 
   initBooking() {
