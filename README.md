@@ -1,1 +1,1 @@
-[Project pizzeria](https://pizzeria-pcwitchera.herokuapp.com)
+[Project pizzeria](https://pizza-pcwichera.herokuapp.com)
